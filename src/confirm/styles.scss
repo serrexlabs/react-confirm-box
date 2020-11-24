@@ -1,0 +1,39 @@
+.confirm-box {
+  z-index: 1000;
+  position: absolute;
+  left: 45%;
+  top: 45%;
+
+  &__content {
+    z-index: 300;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 1em;
+    border-radius: 5px;
+    width: 300px;
+    max-width: 400px;
+  }
+
+
+  &__overlay {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+
+  &__actions {
+    display: flex;
+    padding-top: 1em;
+    justify-content: flex-end;
+
+    > :not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+
+}
