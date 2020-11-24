@@ -1,6 +1,6 @@
 {
   "name": "react-confirm-box",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A callable react confirm alert box",
   "author": "SERrex Labs",
   "license": "Apache-2.0",
