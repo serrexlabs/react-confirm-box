@@ -17,13 +17,13 @@ const ConfirmBox: React.FC<Props> = ({ resolver, message, options }: Props) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const onConfirmPopup = () => {
-    resolver(true);
     setIsOpen(false);
+    resolver(true);
   };
 
   const onCancelPopup = () => {
-    resolver(false);
     setIsOpen(false);
+    resolver(false);
   };
 
   const render = () => {
