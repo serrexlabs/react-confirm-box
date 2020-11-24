@@ -51,12 +51,16 @@ describe('ConfirmBox tests', () => {
 
   it('should replace the content by given component', () => {
     const options = {
-      render: (): any => <p>Replaced content</p>,
+      render: (message: string): any => (
+        <p role="placeholder">Replaced with {message}</p>
+      ),
     };
     render(
       <ConfirmBox resolver={() => {}} message={'Are you sure?'} options={options} />,
     );
 
-    expect(screen.getByText('Replaced content')).toBeTruthy();
+    expect(screen.getByRole('placeholder')).toHaveTextContent(
+      'Replaced with Are you sure?',
+    );
   });
 });

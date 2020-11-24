@@ -9,7 +9,11 @@ type Props = {
       confirmable: string;
       cancellable: string;
     };
-    render?: (onConfirm: () => void, onCancel: () => void) => Element;
+    render?: (
+      message: string,
+      onConfirm: () => void,
+      onCancel: () => void,
+    ) => Element;
   };
 };
 
@@ -44,7 +48,7 @@ const ConfirmBox: React.FC<Props> = ({ resolver, message, options }: Props) => {
       );
     }
 
-    return options.render(onConfirmPopup, onCancelPopup);
+    return options.render(message, onConfirmPopup, onCancelPopup);
   };
 
   return isOpen ? (
