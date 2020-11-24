@@ -1,20 +1,11 @@
 import React, { useState } from 'react';
 import './styles.scss';
+import { Options } from '../types';
 
 type Props = {
   message: string;
   resolver: (decision: boolean) => void;
-  options?: {
-    labels?: {
-      confirmable: string;
-      cancellable: string;
-    };
-    render?: (
-      message: string,
-      onConfirm: () => void,
-      onCancel: () => void,
-    ) => Element;
-  };
+  options?: Options;
 };
 
 const ConfirmBox: React.FC<Props> = ({ resolver, message, options }: Props) => {

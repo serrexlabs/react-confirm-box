@@ -4,14 +4,7 @@ import { Portal } from './portal';
 import ConfirmBox from './confirm';
 import React from 'react';
 import { mountRootId } from './config';
-
-type Options = {
-  labels?: {
-    confirmable: string;
-    cancellable: string;
-  };
-  render?: (onConfirm: () => void, onCancel: () => void) => Element;
-};
+import { Options } from './types';
 
 export const confirm = async (message: string, options?: Options): Promise<any> => {
   const mount = await document.getElementById(mountRootId);
