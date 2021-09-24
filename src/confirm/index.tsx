@@ -21,21 +21,24 @@ const ConfirmBox: React.FC<Props> = ({ resolver, message, options }: Props) => {
     resolver(false);
   };
 
+  const onOverlay = () => {
+    if (!options?.closeOnOverlayClick) return;
+    setIsOpen(false);
+    resolver(false);
+  };
+
   const render = () => {
     const { classNames } = options || {};
 
-    const containerClassNames = `confirm - box__content $ {
-      classNames ?.container || ''
+    const containerClassNames = `confirm-box__content ${classNames?.container || ''}
+    `;
+    const confirmButtonClassNames = `${classNames?.buttons || ''} ${
+      classNames?.confirmButton || ''
     }
     `;
-    const confirmButtonClassNames = `${classNames?.buttons || ''} $ {
-      classNames ?.confirmButton || ''
-    }
-    `;
-    const cancelButtonClassNames = `${classNames?.buttons || ''} $ {
-      classNames ?.cancelButton || ''
-    }
-    `;
+    const cancelButtonClassNames = `${classNames?.buttons || ''} ${
+      classNames?.cancelButton || ''
+    }`;
 
     if (!options?.render) {
       return (
@@ -68,7 +71,7 @@ const ConfirmBox: React.FC<Props> = ({ resolver, message, options }: Props) => {
   return isOpen ? (
     <div className="confirm-box">
       {render()}
-      <div className="confirm-box__overlay" />
+      <div className="confirm-box__overlay" onClick={onOverlay} />
     </div>
   ) : null;
 };
